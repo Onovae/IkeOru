@@ -1,4 +1,4 @@
-# Automation Lab — Master Product & Build Plan
+# IkeOru — Master Product & Build Plan
 
 **Document status:** Living source of truth  
 **Current phase:** MVP v1.0 specification complete / implementation pending  
@@ -13,13 +13,13 @@
 
 ## Working product name
 
-**Automation Lab**
+**IkeOru**
 
 ## Core positioning
 
-> **Zapier and Make help people automate. Automation Lab helps people learn how to think about automation, learn how to automate, and then actually automate.**
+> **Zapier and Make help people automate. IkeOru helps people learn how to think about automation, learn how to automate, and then actually automate.**
 
-Automation Lab is an AI-powered workplace automation learning and execution platform.
+IkeOru is an AI-powered workplace automation learning and execution platform.
 
 It is not simply a course platform and not initially a Zapier/Make competitor.
 
@@ -376,7 +376,7 @@ Example:
 
 > **Sales Automation — Level 1**
 >
-> Verified by Automation Lab  
+> Verified by IkeOru  
 > Skills demonstrated:
 > - Automation thinking
 > - Workflow design
@@ -537,7 +537,7 @@ Studio:
 
 The user sees those same nodes visually and can modify them.
 
-This prevents the learner from having to leave Automation Lab and learn Zapier/Make from scratch.
+This prevents the learner from having to leave IkeOru and learn Zapier/Make from scratch.
 
 ---
 
@@ -933,9 +933,9 @@ The user must control whether projects and assessment details are public.
 
 Zapier/Make primarily help users build and run automations.
 
-Automation Lab's initial differentiation is:
+IkeOru's initial differentiation is:
 
-| Capability | Zapier/Make | Automation Lab |
+| Capability | Zapier/Make | IkeOru |
 |---|---|---|
 | Connect apps | Core | Later |
 | Workflow building | Core | Guided first, Studio later |
@@ -994,7 +994,7 @@ Shows:
 - Learn
 - Practice
 
-## Screen 5 — Automation Lab
+## Screen 5 — IkeOru
 Shows:
 - Input
 - Tools
@@ -1217,7 +1217,7 @@ Design for them; do not implement them.
 
 ## Day 2
 ### Morning
-- Automation Lab
+- IkeOru
 - Tool registry
 - Workflow execution
 
