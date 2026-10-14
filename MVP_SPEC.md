@@ -1,234 +1,214 @@
-# Automation Lab — Moonshot MVP Specification
+# IkeOru — Moonshot MVP Specification
 
-Version: 1.0 · Date: 2026-10-07 · Status: implementation baseline
+> Learn. Do. Prove.
 
-This specification freezes the prototype scope for execution. It records implementation defaults chosen from the supplied plan, prompt history, and the current conversation; it does not claim that every detail has been separately approved or implemented. Changes require a reason, an acceptance-criteria update, and a corresponding entry in DECISIONS_AND_EDGE_CASES.md. Budget, event rules, and deployment details remain explicit open items.
+Version: 1.1 · Date: 2026-10-13 · Status: two-path MVP implementation contract
 
-## 1. Objective and product continuity
+This is the authoritative scope for the Moonshot MVP. It supersedes the v1.0 Sales-only scope where they differ. Historical planning remains useful context, but it does not expand the active product beyond the two paths below. A specification is not evidence that a feature has been implemented or verified; record that evidence in tests and the delivery report.
 
-Deliver a low-budget, judge-ready prototype that demonstrates a professional learning how to identify, configure, run, explain, and prove a workplace automation skill. Preserve the long-term Academy → Lab → Studio → Cloud progression. Guided Lab definitions must be reusable by a future Studio.
+## 1. Product objective
 
-The required proof is one complete experience: Sales → Qualify a New Lead → Learn → Practice → Run → Result → Assessment → Badge → Portfolio.
+IkeOru is an academy-first practical learning platform. It helps learners understand workplace automation concepts, apply them through bounded practical work, and demonstrate introductory capability through meaningful assessment. Academy teaches the concepts; Lab provides a constrained workflow exercise; assessment, achievement, and portfolio provide supporting evidence of learning. Studio and Cloud remain future stages.
 
-Success means a judge can understand the problem, observe a real AI-assisted workflow and a persisted follow-up task, see meaningful learning assessment, and inspect a portfolio entry. The prototype must clearly identify sample data, replay examples, and planned functionality. Neither time savings nor learning outcomes are presented as measured results without actual evidence.
+The MVP is intended to prove two complete, synthetic-data learner journeys:
 
-## 2. Scope and priority
+1. `Sales → Qualify a New Lead → Learn → Practice → Run → Result → Assessment → Achievement → Portfolio`
+2. `HR → Candidate Screening → Learn → Practice → Run → Result → Assessment → Achievement → Portfolio`
 
-| Priority | Included |
-|---|---|
-| Required | Sales lead qualification; concise learning content; constrained practice choices; live AI classification; internal follow-up task; execution timeline; explanation; assessment; badge; persistent learner portfolio; private/organization/public visibility; public portfolio link; accessible responsive UI; failure handling |
-| Required, small | Seeded learner and manager accounts; organization membership; minimal organization progress view; seven domain cards; explicit sample-data labels; labelled replay for service outages |
-| Follow-on after acceptance | Lead Follow-Up and Lead Routing workflows; HR Candidate Screening; self-service organization administration and enrollment; email invitations; downloadable portfolio and badge assets |
-| Future | Visual Studio, Cloud, real CRM/email integrations, payments, advanced analytics, full certification programs, enterprise SSO, broad connector ecosystem |
+The product must distinguish a successful live provider result from a deterministic mock, replay, failed, or interrupted run. It must not claim measured business or learning outcomes without evidence.
 
-Domain states: Sales = Active; Human Resources = Next; Marketing, Finance, Operations, Customer Support, Business Intelligence = Coming Soon. Sales lists its additional planned workflows as unavailable. No enabled button leads to a pretend implementation.
+## 1.1 Academy-first educational contract
 
-This narrower delivery boundary supersedes older schedule entries that placed multiple Sales workflows and HR inside the mandatory 72-hour build. Those capabilities remain on the roadmap.
+The active paths must follow one learning model:
 
-## 3. Personas and three experiences
+> **LEARN → DO → PROVE**
 
-- Learner: a professional beginning automation, using synthetic business examples.
-- Manager: an organization member authorized to inspect team learning progress.
-- Portfolio viewer: an unauthenticated visitor viewing only explicitly published achievements.
+The model is an educational sequence, not a visual label for an execution screen. A learner should understand the relevant concept before configuring or running a workflow, practise with support before being assessed, and receive feedback against explicit learning objectives.
 
-Learner journey: enter demo session → dashboard → Sales → workflow lesson → practice configuration → lead input → live run → result/reflection → assessment → badge → portfolio → optionally publish.
+### Learn — structured understanding
 
-Manager journey: enter manager session → see sample organization roster, completion, assessment pass state, badges → inspect only organization-visible portfolio content. No raw lead data, private attempt answers, or private portfolio access.
+Each active path's Academy lesson must provide:
 
-Visitor journey: open public-safe portfolio link → see selected achievements and a badge verification reference → no account required. Private, organization-only, unknown, and revoked links return a neutral unavailable state.
+- explicit learning objectives stated in learner-facing language;
+- foundational concepts and definitions, including business context and the decision boundary;
+- a worked example connecting the concept to the path's workflow;
+- common mistakes, unsafe assumptions, and why they are mistakes;
+- a concise knowledge check or retrieval prompt; and
+- a clear expected outcome before the learner enters the Lab.
 
-## 4. Screens, states, and navigation
+The workflow concepts (trigger, input, AI, condition, action, output, and human review where applicable) are the minimum foundation, not a substitute for explanation. Recording lesson completion confirms that the lesson was completed; it does not by itself prove understanding or competence.
 
-| Screen | Required content and behaviour |
-|---|---|
-| Demo entry | Explain synthetic data use; separate learner and manager demo sessions; do not imply production authentication; isolated sandbox identity per visitor |
-| Dashboard | Name, beginner level, one required workflow progress, Continue learning, portfolio shortcut; progress based on stored activity |
-| Explore | Seven domains with accurate availability; coming-soon explanation on unavailable cards |
-| Sales | Foundations lesson, available lead qualification Lab, assessment and badge requirements; planned workflows visibly unavailable |
-| Learn | Problem, manual steps, trigger/input/AI/condition/action/output, AI versus deterministic work, human review, diagram and Practice button |
-| Practice/Lab | Guided trigger selection, follow-up rule selection, labelled synthetic sample loader, validated form, Run button, visible tools and timeline |
-| Result | Priority, evidence-based explanation, missing information, chosen action, saved task details, next learning step; partial failure remains visible |
-| Assessment | Questions, one practical rule exercise, submitted score, feedback, retry path; previous attempts retained |
-| Badge | Earned state only after server checks; name, skills, award date, verification ID; link to portfolio |
-| Portfolio | One persistent profile with progress, runs/projects, attempts, badges; visibility controls and selected public achievements; private by default |
-| Public portfolio | Mobile layout, only selected achievements, no raw inputs or internal IDs; neutral unavailable state when access is denied |
-| Manager | Organization-scoped learner counts, required-workflow completion, pass state and badges; sample organization labelled |
+### Do — guided practical application
 
-Every data screen has loading, empty, success, and relevant error states. Preserve form input on recoverable failure. Use labels, keyboard navigation, visible focus, sufficient contrast, text alongside status colours, and an accessible status region for run updates. Respect reduced-motion preferences. Test at narrow mobile and desktop widths.
+Each active path's Lab must provide a guided demonstration or worked configuration, supported practice with constrained choices, and a progressively independent scenario in which the learner interprets supplied evidence and chooses a policy-safe outcome. Scenarios use synthetic but realistic workplace inputs and explain how theory maps to actual workflow behaviour. The server validates inputs, owns policy, persists the result and ordered events, and makes uncertainty visible.
 
-## 5. Learning content and learner choices
+Practical completion means that the learner completed the supported exercise and received an honest terminal result; practical assessment readiness additionally requires a passed independent scenario. A mock or replay can support practice and demonstration, but it is not eligible evidence for a live-run prerequisite or achievement. An incomplete, failed, interrupted, or uncertain outcome must remain visibly incomplete or in review; the interface must not imply successful capability.
 
-The learner should explain: what triggers the workflow; why interpretation of a message benefits from AI; why task creation uses deterministic software; and when incomplete information requires review.
+### Prove — meaningful assessment
 
-The guided exercise allows only predefined choices, not arbitrary code or graph editing:
-1. Select “New lead submitted” as the correct trigger; explain incorrect options immediately.
-2. Select a HOT follow-up policy: immediate or within 24 hours.
-3. Enter/load sample data, run, inspect the explanation, and reflect on one changed input.
+Each path's assessment must evaluate both theoretical understanding of the stated concepts and practical application of the workflow, policy, evidence handling, or human-review boundary. Passing criteria must be explicit, server-enforced, and tied to the learning objectives. Feedback should identify what was demonstrated and what needs more practice. Passing an assessment is evidence of that assessment attempt; it is not, by itself, a claim of broad workplace competence.
 
-The lesson completion event records explicit completion. Clicking through alone does not award a badge. Reflection can be a short, non-graded prompt; automated essay grading is outside scope.
+### Evidence vocabulary and achievement boundary
 
-## 6. Lead input and classification contract
+| State | Meaning | What it does not mean |
+| --- | --- | --- |
+| Lesson completion | The server recorded completion of the path's Academy lesson. | Mastery, practical success, or an achievement. |
+| Practical completion | The guided Lab exercise reached an honest terminal result with validated synthetic data. | Eligibility for a live-run achievement when the mode is mock or replay. |
+| Assessment passed | The server graded the theory and practical requirements at or above the path's passing criteria. | A final hiring decision, broad competence claim, or automatic badge without other prerequisites. |
+| Demonstrated competence | Narrow introductory capability supported by lesson completion, eligible practical evidence, and a passing path assessment. | A workplace certification, employment decision, or claim beyond the defined objectives. |
+| Achievement awarded | The backend created the path-specific award after all defined prerequisites were met. | Proof that mock, replay, failed, or interrupted work was live or successful. |
 
-Required: synthetic lead name (1–100 characters), company (1–150), message (20–2,000). Optional: industry (100), company size (positive integer), budget amount (nonnegative), currency (supported code when an amount is entered), need (500), purchase timeframe (controlled choice). Trim whitespace; reject invalid types and excessive lengths server-side. Unknown budget is distinct from zero.
+Portfolio, badge, progress, and manager views support this evidence trail. They do not replace teaching, practice, assessment, or server eligibility checks.
 
-Use a fictional product context displayed in the lesson: a business software service for teams. Classification uses explicit need and purchase intent/timeframe; company size and budget alone do not determine priority. Avoid unsupported conclusions from company names or personal characteristics.
+## 2. Scope boundary
 
-Structured AI response: priority HOT/WARM/COLD/NEEDS_REVIEW, short explanation, evidence drawn from supplied input, missing_fields, and suggested_next_step. No fabricated contact information or invented facts. No unsupported numeric confidence percentage.
+| Area | MVP status |
+| --- | --- |
+| Sales → Qualify a New Lead | Active learning path; Academy depth and verification requirements apply |
+| HR → Candidate Screening | Active learning path with mandatory human review; Academy depth and verification requirements apply |
+| Marketing, Finance, Operations, Customer Support, Business Intelligence | Coming Soon preview only |
+| Sales: lead generation, follow-up, email drafting, pipeline reporting, re-engagement | Coming Soon only |
+| HR: interview scheduling, onboarding, employee-query classification, leave processing, training-needs identification, HR document processing | Coming Soon only |
+| Visual Studio, Cloud, real CRM/email/ATS integrations, billing, production onboarding, broad connectors | Out of scope |
 
-- HOT: explicit relevant need and near-term intent.
-- WARM: relevant interest with incomplete timing or commitment.
-- COLD: explicit lack of current need or clearly irrelevant request.
-- NEEDS_REVIEW: inadequate, contradictory, or unsafe-to-interpret information.
+Coming Soon cards may explain planned capability but must not invoke unfinished workflow, automation, or provider endpoints.
 
-These are learning rubric definitions, not claims of predictive sales accuracy. Borderline outputs may vary; tests enforce schema, safety, and obvious fixtures rather than exact prose.
+## 3. Shared learner experience
 
-## 7. Workflow and approved actions
+The two active paths reuse one server-owned workflow architecture. A learner can:
 
-Server-owned, versioned definition: new_lead trigger → validate_input → classify_lead AI step → evaluate_policy condition → create_follow_up_task action → persist_result/explanation.
+1. Open a synthetic-data demo session and choose an active domain.
+2. Complete the path's Academy lesson, including the structured Learn requirements in Section 1.1, before entering practical work.
+3. Make constrained practice choices; arbitrary code, tools, graph editing, and workflow conditions are unavailable.
+4. Submit validated synthetic data to a versioned workflow.
+5. Inspect a persisted result and ordered execution timeline.
+6. Complete a path-specific server-graded assessment.
+7. Meet server-enforced prerequisites for a path-specific introductory achievement.
+8. View persistent private portfolio evidence and explicitly choose safe public items.
 
-HOT creates an internal task due now or 24 hours after submission according to the selected rule. WARM creates a task due in 72 hours. COLD creates no task and explains why. NEEDS_REVIEW creates an internal review task with no fabricated lead priority. All due dates store UTC and display in the viewer's timezone.
+Screens must retain relevant loading, empty, success, and safe error states; preserve recoverable form input; work with keyboard navigation; use visible focus and accessible status text; respect reduced motion; and remain usable on narrow screens.
 
-Approved tool contracts:
-- classify_lead(validated_lead, rubric_version): AI adapter returning validated structured classification.
-- create_follow_up_task(run_id, task_kind, due_at, summary): internal database action; server supplies owner and organization; unique run/action key prevents duplicates.
-- draft_follow_up_email: reserved future action; not exposed or executed in v1.
+## 4. Domain dashboard
 
-The server chooses the permitted tools from the workflow definition and validates arguments. The model cannot execute arbitrary URLs, code, SQL, tools, or external messages. Input text is untrusted data; instructions embedded in a lead message cannot override the rubric or tool policy.
+The dashboard displays exactly seven domains:
 
-Definition fields: stable workflow key, version, domain, input schema, ordered steps with stable IDs and types, registered action names, constrained conditions, output schema. Evaluate structured conditions using an allowlist; never eval user strings. Store the exact workflow/rubric/config version on every run. Future Studio can edit this representation; graph editing is deferred.
+- Sales — **Active**
+- HR — **Active**
+- Marketing — **Coming Soon**
+- Finance — **Coming Soon**
+- Operations — **Coming Soon**
+- Customer Support — **Coming Soon**
+- Business Intelligence — **Coming Soon**
 
-## 8. Run lifecycle and timeline
+Each active domain shows one active workflow and its learning, practice, assessment, achievement, and portfolio route. The future Sales and HR paths named in Section 2 are visible only as unavailable roadmap entries.
 
-States: queued → running → completed / needs_review / failed. A cold lead with a deliberately skipped task is completed. needs_review is a valid saved outcome. Failures never become completion through UI animation.
+## 5. Sales — Qualify a New Lead
 
-Persist ordered events with run ID, monotonic sequence, step ID, timestamp, status, safe message, and optional safe result reference. Events include received, validated, AI started, AI completed, policy evaluated, action started, action completed/skipped, result persisted, terminal state. Do not expose provider secrets or private reasoning; show a concise explanation based on input evidence.
+### Learning and practice
 
-Use polling for v1 (approximately once per second while active); retrieve events after a sequence cursor. Stop on terminal state. Reconnect and refresh resume from stored events. Streaming can be added later without changing event semantics.
+Teach why a new lead is the trigger, lead data is input, AI interprets supplied business context, a deterministic condition applies policy, an internal task is the approved action, and incomplete information can require human review. Learners choose the predefined `New lead submitted` trigger and an allowed HOT follow-up rule (`immediate` or `within 24 hours`).
 
-Use a bounded provider timeout and at most one retry for transient classification failure. The total run deadline is configurable (initial default 60 seconds). An interrupted application process marks unfinished runs as interrupted/failed on recovery; no durable job queue is required for the prototype. A user retry creates a linked new attempt. Successful internal actions are protected from duplication and recovered by their unique action key.
+### Input and result contract
 
-Idempotency keys bind authenticated user, workflow version, and request payload hash. Repeating an identical request returns the same run; reusing a key with different input returns a conflict. Database transactions protect task creation and result state; duplicate submissions never create duplicate tasks.
+Use synthetic lead data only. Required input is lead name, company, and message; optional business context may include industry, company size, budget, currency, need, and controlled purchase timeframe. The backend trims and validates types, sizes, and values. Unknown budget is distinct from zero.
 
-## 9. Assessment and badge eligibility
+The validated AI result contains one of `HOT`, `WARM`, `COLD`, or `NEEDS_REVIEW`; a concise explanation grounded only in supplied input; supporting evidence; missing information; and a safe suggested next step. It must not invent contact details, facts, or confidence percentages.
 
-Versioned assessment: five conceptual questions, one point each, plus one practical rule exercise worth one point. Pass requires at least 5/6 and a correct practical exercise. The practical exercise asks the learner to select/configure immediate HOT follow-up and predict behaviour for a WARM or review case. Verify the practical result with deterministic fixtures, not a second paid AI call.
+### Server policy
 
-Server-side prerequisites: lesson completed, at least one successful live eligible Lab run, assessment passed including practical requirement. A valid cold or needs-review run qualifies as a completed learning run when its expected branch persisted successfully. Failed and replay runs never qualify.
+- `HOT`: create an internal follow-up task according to the selected rule.
+- `WARM`: create an internal follow-up task due within 72 hours.
+- `COLD`: complete successfully without creating a task.
+- `NEEDS_REVIEW`: create an internal review task.
 
-Award “Sales Automation — Level 1” once per user/badge definition, with skills narrowly described as this introductory guided lead-qualification capability. Do not imply accredited certification or completion of all Sales workflows. Preserve assessment attempts and feedback; use best passing status for completion, show attempt dates in private history. Never send answer keys to the client before submission.
+The backend, not the model, owns these policies and task arguments. The model cannot execute arbitrary code, SQL, URLs, external messages, or unapproved tools.
 
-## 10. Portfolio, sharing, and enrollment
+## 6. HR — Candidate Screening
 
-Create exactly one portfolio when a user is created, including seeded/demo users. Uniqueness on user_id prevents duplicates. Domain switching and future organization membership changes do not create new portfolios.
+### Purpose and safety boundary
 
-Store lab history, assessment attempts, badge awards, and progress. The project entry groups runs for the workflow; reruns appear in history rather than creating repeated badges or inflated completed-project counts.
+Candidate Screening is a learning workflow that helps a learner compare supplied **synthetic** candidate information against explicit, job-related requirements. It is not an applicant-tracking system, automated hiring decision, or employment recommendation engine.
 
-Visibility: private by default; organization-only limits access to authorized managers in the learner's current organization; public publishes explicitly selected achievements. Organization progress summaries are distinct from portfolio details. Raw lead inputs, task content, private answers, and email addresses never appear publicly. Share identifiers are opaque and separate from internal IDs; possession of an identifier is not authorization for private content.
+Never use, infer, request, rank, or recommend action based on protected characteristics or proxies for them. Do not invent candidate qualifications, credentials, work history, or gaps. Do not automatically reject, advance, shortlist, or make a final hiring decision. Every result must recommend human review before any employment action.
 
-Copy link and public preview work in v1. Native social posting and PDF/badge downloads are follow-on. Public badge verification follows the owner's publication choice; revoking visibility removes public access immediately, without cached private content.
+### Learning and practice
 
-Prototype enrollment is a seed/admin setup operation, not a full invitation service. Demo entry creates an isolated sandbox learner and sample organization context server-side; manager demo data is synthetic. Session identity persists across refresh; another browser/device is not guaranteed to restore that demo identity. Cross-device sign-in and real organization onboarding remain later work. Demo data retention must be disclosed; no promise of indefinite retention before hosting is chosen.
+Teach the same workflow concepts in an HR context: a candidate submission and job requirements are inputs; AI assists evidence extraction and comparison; deterministic backend rules constrain output; the learner inspects missing information; and a human reviewer owns the next decision.
 
-## 11. Authentication, authorization, and security
+Practice uses a bounded set of job-related criteria and labelled synthetic candidate/job-requirement examples. It does not accept arbitrary workflow logic or free-form hiring rules.
 
-Use backend-created opaque sessions with expiry and secure HttpOnly cookies on deployed HTTPS; sessions resolve roles and organization membership server-side. Demo role selection only grants access to the visitor's synthetic sandbox; it never promotes a real user or unlocks another tenant. Production signup, password recovery and SSO are outside v1.
+### Input and result contract
 
-Owner checks apply to every run, event, assessment attempt, task, portfolio edit and progress route. Manager reads require same-organization membership and allowed fields. Public endpoints serialize an explicit safe field allowlist. Implement CSRF protection/origin checks for cookie-authenticated writes, restricted CORS, server-side validation, output escaping, and rate limits. Keep API credentials server-side and out of source control/logs. Record sanitized provider failures without raw lead text by default.
+The backend validates synthetic candidate and job-requirement input before invoking an adapter. The structured result must:
 
-Only synthetic data is supported in the prototype. Isolate tenants even when data is synthetic. Publishing requires an explicit user action; no automated external email or messaging is part of the Lab.
+- assess only explicit job-related criteria supplied for the exercise;
+- list evidence tied to supplied candidate text;
+- identify missing or insufficient information without filling gaps with assumptions;
+- make uncertainty visible; and
+- return a recommended next step that requires human review.
 
-## 12. Data model
+The server validates adapter output against its HR schema and stores only safe result data and ordered events. Provider output that is malformed, unsupported, ungrounded, or unsafe fails honestly; it never becomes a fabricated result.
 
-| Entity | Minimum fields and constraints |
-|---|---|
-| User | id, display_name, demo flag, created_at |
-| Organization / Membership | organization id/name/demo flag; user_id, organization_id, role; unique membership |
-| Session | token hash, user_id, expires_at; never store plaintext tokens in logs |
-| Portfolio | user_id unique, opaque public_id unique, visibility, selected public items, updated_at |
-| Domain | stable key, title, availability, order |
-| Workflow / WorkflowVersion | stable key, domain_id, title; immutable versioned definition and rubric |
-| LessonProgress | user_id, lesson/version, completed_at; unique completion |
-| WorkflowRun | owner, organization context, workflow version, config/input, state, safe output, mode, retry_of, timestamps, idempotency key/hash |
-| RunEvent | run_id, sequence unique per run, step, state, timestamp, safe payload |
-| FollowUpTask | owner, run_id, kind, due_at, summary, status; unique run/action key |
-| Assessment / Attempt | assessment version, user, answers, server score, practical_pass, overall_pass, submitted_at |
-| BadgeDefinition / Award | criteria version, name; unique user/definition award, verification ID, date, evidence refs |
-| PortfolioProject | portfolio/workflow unique, qualifying run refs, title, skills, first/last activity |
-| Progress | user/workflow unique, lesson/lab/assessment states; derived or transactionally updated |
+### Approved action
 
-Use migrations, foreign keys, and explicit delete policy. Seed catalog and assessment definitions idempotently. A failed write cannot leave a awarded badge without its evidence. Later domains reuse these entities.
+The only permitted HR action is to persist an internal **human-review recommendation** for the synthetic exercise. It does not contact a candidate, modify an external ATS, create a hiring decision, or execute external actions.
 
-## 13. API contract
+## 7. AI modes and execution safety
 
-All private endpoints derive user identity from the session. Resource identifiers never grant access by themselves.
+The backend offers a deterministic mock adapter for development/tests and a configurable server-only OpenAI Responses API adapter for live mode. `IKEORU_AI_MODE` must be explicit; mock mode is the safe default. Automated tests use mock responses and make no billable provider calls.
 
-| Endpoint | Purpose |
-|---|---|
-| POST /api/demo/session | Create isolated learner or manager sandbox session; rate limited |
-| GET /api/me | Current identity, role, and demo status |
-| GET /api/domains | Availability-aware catalog |
-| GET /api/workflows/{key} | Lesson, version, allowed configuration, safe metadata |
-| POST /api/lessons/{key}/complete | Record explicit lesson completion |
-| POST /api/workflows/{key}/runs | Validate, authorize, enforce quotas/idempotency, return 202 + run_id |
-| GET /api/runs/{id} | Current owned run state and safe result |
-| GET /api/runs/{id}/events?after= | Ordered owned events and cursor |
-| GET /api/assessments/{key} | Questions without answer keys |
-| POST /api/assessments/{key}/attempts | Grade, persist attempt, transactionally award eligible badge |
-| GET /api/me/portfolio | Complete private learner portfolio |
-| PATCH /api/me/portfolio | Visibility and public-item selection |
-| GET /api/p/{public_id} | Public allowlisted portfolio or neutral 404 |
-| GET /api/badges/{verification_id} | Published badge evidence or neutral 404 |
-| GET /api/organizations/{id}/progress | Authorized manager summary |
-| GET /api/examples/{key} | Labelled static replay, never recorded as live achievement |
+- **MOCK**: deterministic local output, visibly labelled; useful for development and tests.
+- **LIVE**: labelled only after a real provider response succeeds and passes server validation.
+- **REPLAY**: fixed, labelled demonstration; not a provider call.
+- **FAILED / INTERRUPTED**: explicit terminal states, never animated or described as completed.
 
-Errors use code, friendly message, safe field errors, retryable flag, and request ID. Use 400/422 for invalid input, 401 for expired session, 403/404 for unavailable resources, 409 for idempotency/state conflict, 429 for usage limit, and 503 for provider/service outage. Never expose exception traces.
+Provider errors, missing credentials, invalid output, request timeout, and daily live-run-limit exhaustion must produce safe errors. A failed live request must never silently return mock output. The API key remains backend-only and is never returned or logged. The model setting, provider timeout, and live daily limit come from server configuration.
 
-## 14. Budget, technology, and deployment
+## 8. Persistence, policies, and idempotency
 
-Preserve recommended React + Vite frontend, FastAPI backend, SQLite for the local/prototype database, and OpenAI Responses integration. Model selection is configurable and validated during integration; do not hardcode a speculative model or price. Static lessons and deterministic assessment grading avoid unnecessary API calls. One classification call per run is the default; use its structured explanation for the result.
+Every run stores its workflow/version, sanitized input and safe result, explicit mode, terminal state, and ordered events. Events use a monotonic sequence per run and include receipt, validation, AI start/completion or failure, policy evaluation, permitted action, result persistence, and terminal state. The UI polls persisted events and resumes from a cursor after refresh.
 
-Initial protective limits: 10 live runs per demo session per day, bounded input/output, one concurrent run per session, and a configurable global daily live-run ceiling. A monetary budget has not been agreed. Set the global ceiling and provider limits before public live access; usage counters alone are not an exact monetary cap. Exhaustion gives an honest limit message and optional replay.
+Idempotency binds the authenticated user, workflow version, and request payload. Repeating the same request returns the original run; reusing a key with changed input conflicts. Transactions and unique action keys prevent duplicate Sales tasks, HR human-review recommendations, achievements, and portfolio projects.
 
-Hosting is undecided. SQLite deployment requires persistent storage and a single application instance; do not place the only database on an ephemeral filesystem. Use PostgreSQL if the selected host requires stateless/multi-instance execution. Prefer same-origin frontend/API routing. Verify HTTPS, secrets, migrations, restart persistence, and a restoreable demo seed before presenting. The 72-hour sequence is a target, not a delivery guarantee.
+## 9. Assessment, achievement, and portfolio
 
-Live mode calls the configured provider and persists real sandbox actions. Replay mode displays a fixed, labelled example and does not award progress, assessments prerequisites, badges, or projects. It never silently replaces a failed live request.
+Each active path has distinct lesson content, assessment questions, practical exercise, workflow version, and introductory achievement definition. The server grades answers and checks prerequisites; the browser cannot award an achievement itself.
 
-## 15. Acceptance and testing gates
+A path-specific achievement requires its lesson completion, a successful eligible **live** run for that path, and a passing assessment including its practical requirement. Mock, replay, failed, and interrupted runs cannot satisfy a live-run prerequisite. Repeated passing attempts cannot create duplicate awards.
 
-- AC01: All seven domains display correctly; only implemented workflows are runnable.
-- AC02: Learner completes the lesson and meaningful constrained practice choices using keyboard or pointer.
-- AC03: Valid live input invokes the configured AI adapter, validates its output, executes the permitted branch, and saves the result.
-- AC04: Timeline accurately shows persisted events, including skipped actions and partial failures; refresh resumes.
-- AC05: HOT/WARM/COLD/NEEDS_REVIEW policies match the contract; unknown budget is not treated as zero.
-- AC06: Duplicate submissions and transient retries cannot duplicate follow-up tasks.
-- AC07: Failed/replay runs cannot satisfy badge prerequisites; passing score alone is insufficient.
-- AC08: Eligible completion produces exactly one badge and one grouped project; retries preserve attempt history.
-- AC09: Portfolio and progress survive refresh and backend restart in the selected deployment.
-- AC10: Public views expose only selected safe fields; private and cross-tenant access fail; revocation works.
-- AC11: Manager sees only authorized organization progress and permitted portfolio details.
-- AC12: Input errors, provider outage, malformed output, quota exhaustion, session expiry and interrupted runs have actionable UI states.
-- AC13: Narrow-screen layout, keyboard navigation, focus, status announcements and reduced motion are verified.
-- AC14: Live and replay modes are unmistakable; sample data and planned features are labelled.
-- AC15: Three-minute demo can complete using a prepared learner state while retaining a separate fresh learner walkthrough.
+Each user has one persistent portfolio. Projects group history by workflow rather than inflate completion counts on rerun. Portfolios are private by default. Public views disclose only explicitly selected, safe achievements/projects; they never expose raw lead/candidate/job inputs, internal task or review content, assessment answers, email addresses, session identifiers, or internal database IDs. Owner and organization checks protect private routes.
 
-Tests: backend integration tests for authorization, policy branches, schema rejection, idempotency, transactional awards and privacy; provider adapter mocks for failure cases; one low-cost live provider smoke test after credentials/budget are configured; browser walkthrough of learner → assessment → badge → publication → visitor and manager paths. Test an adversarial instruction inside lead text. Validate restart persistence on the actual deployment. Mock-only tests cannot establish live provider functionality.
+## 10. Data, authorization, and privacy
 
-## 16. 72-hour implementation sequence
+Use synthetic data only. The backend owns validation, workflow policy, tool allowlists, output validation, assessment grading, achievement eligibility, persistence, and authorization. Inputs and model outputs are untrusted data; never evaluate them as code, SQL, URLs, or arbitrary tools.
 
-Day 1: repository and app shells; migrations and seed; isolated demo sessions; catalog; Sales lesson and constrained Lab form; server workflow definition and validation.
+Demo sessions are server-created sandbox identities. Managers may view only same-organization progress and permitted portfolio fields. Public identifiers are opaque and do not grant private access. Cookie-authenticated writes use CSRF/origin checks and restricted CORS. Secrets, raw private data, and provider traces must not be committed, returned, or logged.
 
-Day 2: AI adapter and approved task action; persisted event timeline; result and failure UI; assessment prerequisites and grading; transactional badge/project creation.
+## 11. API and technology boundary
 
-Day 3: portfolio visibility and public view; small manager view; quota/replay handling; focused integration and browser checks; deployment persistence; demo rehearsal and pitch evidence.
+The MVP uses React + Vite, FastAPI, and SQLite for the local prototype. The API exposes availability-aware domains; one safe workflow, lesson, run, events, assessment, and portfolio route per active key; public allowlisted portfolio/badge routes; and organization-scoped progress. Requests must derive identity server-side.
 
-If behind schedule, defer animation polish and manager presentation detail before compromising persistence, authorization, the core learner loop, or truthful execution states. HR remains follow-on.
+Use the OpenAI Responses API only through the backend adapter. Live mode uses a configurable model, bounded request timeout, structured-output validation, and a daily live-run limit. Hosting and deployment persistence remain separate decisions; SQLite needs persistent single-instance storage.
 
-## 17. Monetization and demonstration
+## 12. Acceptance and verification gates
 
-Working commercial hypothesis: organizations pay for a small Sales automation learning pilot, followed by learner licenses as content grows. Individual paid pathways and later Studio usage plans are future options. Pricing and willingness to pay are unvalidated. Checkout is outside this prototype.
+| ID | Criterion |
+| --- | --- |
+| AC01 | Seven domains render with Sales and HR active, five domains Coming Soon, and no runnable unfinished future paths. |
+| AC02 | Sales preserves its four classifications, server-owned task policy, validation, persistence, ordered events, and idempotency. |
+| AC03 | HR accepts only valid synthetic candidate/job inputs and returns schema-validated, evidence-grounded, missing-information-aware output with a human-review recommendation. |
+| AC04 | Neither path uses protected characteristics, makes an autonomous hiring decision, invents facts, or performs external actions. |
+| AC05 | Each active path meets the Section 1.1 Learn → Do → Prove contract: structured lesson objectives and foundations precede guided practice; practical completion is distinct from assessment; assessments test theory and application with server grading and meaningful criteria; backend achievement prerequisites remain enforced. |
+| AC06 | Mock, live, replay, failed, and interrupted modes are distinct; a failed live call never falls back to mock; automated tests are non-billable. |
+| AC07 | Runs, events, results, permitted actions, progress, assessments, achievements, and grouped projects persist without duplicate effects. |
+| AC08 | Public portfolio and manager outputs are safe-field allowlists, with owner/organization authorization intact. |
+| AC09 | Invalid input, malformed output, provider errors, limits, timeouts, duplicate requests, and unavailable routes fail safely and honestly. |
+| AC10 | Focused backend tests, Python compilation, frontend production build, dependency check, and diff check are run and reported with exact results. Browser and live-provider results are reported only if actually executed. |
 
-Demo outline: show a repetitive Sales problem; teach the workflow; let the learner choose a rule; run a prepared synthetic lead live; explain AI versus deterministic action; show an assessment and earned evidence; open the portfolio; briefly show manager value and future progression. A seeded completed account may shorten presentation time but must be labelled and must not be presented as a newly earned achievement.
+## 13. Non-goals
 
-## 18. Change discipline and current state
+Do not add further Sales or HR workflows, real CRM/email/ATS integrations, automated hiring actions, a visual workflow editor, arbitrary prompt/tool execution, billing, production authentication/SSO, advanced analytics, downloadable credentials, or a deployment claim. Preserve future architecture without implementing it.
 
-The implementation has not started in the supplied materials. This document supplies the engineering baseline. Maintain DECISIONS_AND_EDGE_CASES.md as the issue register, plan.md as the roadmap/status, and prompts.md as an append-only decision/prompt history. Record what changed, why, affected acceptance criteria, verification evidence, and remaining uncertainties. Do not label planned work complete until it is implemented and checked.
+## 14. Change discipline
+
+Record scope changes and edge cases in `DECISIONS_AND_EDGE_CASES.md`; use `plan.md` for current implementation order; keep `prompts.md` as historical context. Update tests with behavior changes. Do not describe a planned, mock, seeded, or untested path as implemented, live, or verified without evidence.

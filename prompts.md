@@ -510,3 +510,9 @@ These are recorded engineering defaults, not additional verbatim user instructio
 # 30. Continuing Work from This Baseline
 
 Read MVP_SPEC.md v1.0 for current behaviour and DECISIONS_AND_EDGE_CASES.md for open issues and verification status. Preserve the Academy → Lab → Studio → Cloud vision. Initialize the application next, then build the complete Sales journey. Update document status based on evidence; the application has not yet been implemented in this continuation.
+
+# 31. IkeOru Implementation Update (2026-10-13)
+
+The local implementation now contains the scoped Sales → Qualify a New Lead and HR → Candidate Screening slices: React/Vite learner UI, FastAPI/SQLite workflow service, deterministic mock adapter, configurable server-only OpenAI adapter, Academy progress, assessments, badge prerequisites, portfolio safety controls, and the required submission material.
+
+Verification evidence: focused backend suites and the frontend production build have passed; the exact command results are recorded in the working-session report. During direct persistence smoke testing, a same-transaction run-event sequence collision was found and fixed. Full HTTP `TestClient` verification remains blocked because the current Windows/Python runner hangs creating a local async socket. One separately authorized synthetic Sales live diagnostic reached the provider path and failed with a sanitized connection error; mock mode was restored and no successful live-provider or deployment claim is made.

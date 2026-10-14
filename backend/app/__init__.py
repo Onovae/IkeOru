@@ -1,0 +1,1 @@
+"""IkeOru FastAPI application package."""

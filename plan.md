@@ -1,11 +1,13 @@
 # IkeOru — Master Product & Build Plan
 
 **Document status:** Living source of truth  
-**Current phase:** MVP v1.0 specification complete / implementation pending  
+**Current phase:** Two-path local MVP assembled / focused verification in progress / controlled live-provider diagnostic failed with a connection error
 **Primary goal:** Build a Moonshot-ready MVP that teaches professionals how to think about, build, run, assess, and prove workplace automation skills.
 
 
-> **Current implementation baseline — 2026-10-07:** `MVP_SPEC.md` v1.0 governs the Moonshot prototype. One complete Sales lead-qualification journey is required. Additional Sales workflows and HR remain follow-on. Earlier broader MVP lists and schedules below preserve the roadmap; the scope and sequence in sections 40–42 supersede their immediate delivery requirements. Track grey areas and verification in `DECISIONS_AND_EDGE_CASES.md`.
+> **Current implementation baseline — 2026-10-13:** `MVP_SPEC.md` v1.1 governs the Moonshot prototype. Exactly two active journeys are required: Sales → Qualify a New Lead and HR → Candidate Screening. Earlier Sales-only roadmap sections remain historical context only. Track current scope and verification in `MVP_SPEC.md` and `DECISIONS_AND_EDGE_CASES.md`.
+
+> **Implementation update — 2026-10-13:** The local codebase contains both scoped vertical slices and the shared React/FastAPI/SQLite architecture. Sales retains its existing policy path; HR adds synthetic evidence review, a mandatory human-review task, distinct assessment/achievement definitions, and portfolio project support. The five other domains and every additional Sales/HR workflow remain Coming Soon. Focused direct service tests, the frontend production build, and a browser smoke check of protected Sales and HR runs are recorded separately. One explicitly authorized synthetic Sales live diagnostic reached the provider path but failed with a sanitized connection error; no successful live result is claimed and the application was restored to mock mode.
 
 ---
 
@@ -577,7 +579,9 @@ The remaining HR workflows can follow once the Sales architecture is proven.
 
 ---
 
-# 17. First Vertical Slice
+# 17. Historical Sales-First Vertical Slice
+
+The following section records the original Sales-first plan. It is retained for context; `MVP_SPEC.md` v1.1 and Section 43 now govern the active two-path implementation.
 
 The first complete implementation is:
 
@@ -1320,7 +1324,9 @@ Projects + assessments + badges + verified portfolio.
 
 ---
 
-# 39. Immediate Next Action
+# 39. Historical Product North Star and Immediate Next Action
+
+The North Star remains useful; the Sales-first immediate action below is historical and is superseded by the two-path order in Section 43.
 
 **Do not add more product scope before execution.**
 
@@ -1336,7 +1342,9 @@ That workflow is the first complete proof of the entire platform architecture.
 
 
 
-# 40. Moonshot Prototype Baseline — 2026-10-07
+# 40. Historical Moonshot Prototype Baseline — 2026-10-07
+
+This baseline is retained as historical context. It predates the two-path v1.1 contract; current implementation status and priorities begin in Section 43.
 
 The immediate goal is a low-budget prototype with a complete, credible judge demonstration. `MVP_SPEC.md` v1.0 is now the engineering baseline. It is a scope freeze for implementation, with open budget/hosting/event details tracked explicitly.
 
@@ -1346,7 +1354,7 @@ Sales Lead Follow-Up, Lead Routing and HR Candidate Screening are follow-on afte
 
 Demo users and organizations use isolated synthetic data. Replay is labelled and never creates achievements. A live run is required for badge eligibility. Authentication is scoped to prototype sessions, with ownership and organization checks enforced server-side.
 
-# 41. Current Execution Order and Status
+# 41. Historical Execution Order and Status
 
 | Step | Deliverable | Status |
 |---|---|---|
@@ -1368,3 +1376,65 @@ Commercial hypothesis: organization-paid pilot, then learner licenses; individua
 Open items: live AI budget/credentials/model, deployment host and persistent database, official event requirements/deadline, and demo retention. See DECISIONS_AND_EDGE_CASES.md for blocking status and defaults.
 
 After each meaningful implementation milestone, update this plan with actual status, append the reasoning to prompts.md, and update the specification/register when behaviour changes. Never mark planned or mocked functionality as live/verified.
+
+# 43. Two-Path MVP Scope Update — 2026-10-13
+
+`MVP_SPEC.md` v1.1 supersedes the earlier Sales-only implementation boundary. The agreed MVP now has exactly two active learning paths:
+
+1. Sales → Qualify a New Lead
+2. HR → Candidate Screening
+
+Marketing, Finance, Operations, Customer Support, and Business Intelligence remain Coming Soon. Sales lead generation, follow-up, email drafting, pipeline reporting, and re-engagement remain Coming Soon. HR interview scheduling, onboarding, employee-query classification, leave processing, training-needs identification, and HR document processing remain Coming Soon. No Coming Soon card may call an unfinished endpoint.
+
+## Current implementation order
+
+| Priority | Deliverable | Evidence required before marking verified |
+|---|---|---|
+| 1 | Preserve Sales regression behaviour and existing privacy/idempotency controls | Focused Sales tests and regression review |
+| 2 | Add HR Candidate Screening through lesson, constrained Lab, structured result, human-review recommendation, assessment, achievement, and portfolio | Focused HR tests and persisted-event checks |
+| 3 | Update the seven-domain dashboard and future-path preview copy | Frontend production build and manual browser walkthrough |
+| 4 | Confirm mock/live separation, no provider fallback, limits, and timeout handling | Deterministic configuration/provider tests; no billable test calls |
+| 5 | Run complete two-path verification and rehearse the demo fallback | Exact command output; browser/live evidence only if actually run |
+
+## HR boundary
+
+Candidate Screening is a synthetic, job-related evidence exercise. It must identify supporting evidence and missing information, make uncertainty visible, and persist a mandatory human-review recommendation. It must not infer or use protected characteristics or proxies, invent qualifications, operate an ATS, contact candidates, reject/advance/shortlist candidates, or make a final hiring decision.
+
+## Evidence discipline
+
+Keep `IKEORU_AI_MODE=mock` during implementation and automated tests. A configured key is not proof of live-provider success. Run at most one separately authorized synthetic live smoke test only after non-billable checks are complete, then return to mock mode. Do not update this plan from “in progress” to “verified” without exact test/build/walkthrough evidence.
+
+## Local verification snapshot — 2026-10-13
+
+- `python -m pytest -q --basetemp .pytest-tmp-final tests/test_configuration.py tests/test_core_services.py` — 17 passed.
+- `python -m compileall -q app tests` and `python -m pip check` — passed.
+- `npm run build` in `frontend/` — passed.
+- A local browser smoke check verified a fresh session, the dashboard, seven-domain availability, and protected Sales and HR runs with persisted results and ordered timelines. One separately authorized synthetic Sales live diagnostic was attempted and failed with a sanitized connection (`APIConnectionError`) diagnostic; mock mode and the original daily limit were restored. The local Windows/Python HTTP lifecycle still does not complete the bounded focused TestClient CSRF check after collection, so that result is recorded as an environment limitation.
+
+# 44. Academy-First Implementation Priorities — 2026-10-13
+
+`MVP_SPEC.md` now defines the educational contract as **Learn → Do → Prove**. This section separates that documented requirement from the current implementation and from work still needed; a requirement is not complete merely because a screen or route exists.
+
+## Documented requirements
+
+- **Learn:** explicit objectives, foundations and definitions, business context, worked examples, common mistakes, knowledge checks, and an expected outcome for both active paths.
+- **Do:** guided demonstrations, supported practice, realistic synthetic scenarios, progressively more independent exercises where appropriate, and explanations connecting concepts to workflow behaviour.
+- **Prove:** server-graded theory and practical assessment against explicit objectives, meaningful passing criteria, and useful feedback.
+- Evidence states must remain distinct: lesson completion, practical completion, assessment passed, demonstrated competence, and achievement awarded.
+
+## Implemented baseline
+
+- Sales and HR each have server-owned, ordered Academy sections with explicit objectives, foundations, definitions, business context, worked examples, common-mistake guidance, and knowledge checks. Section/check progress is persisted and completion is checked against the server record.
+- The frontend renders a shared Academy stepper, explanatory concept details, worked examples, feedback, and a guided-practice coach before the existing constrained Labs.
+- Both active paths now include a server-graded independent scenario. Learners interpret supplied evidence and choose a policy-safe outcome; a passed scenario is required for the practical assessment requirement and badge prerequisites.
+- Both paths retain synthetic inputs, persisted results/events, server-graded assessments, objective-specific feedback, and backend achievement prerequisites. Mock and replay support practice but cannot satisfy the live-run achievement prerequisite. HR results preserve evidence gaps and mandatory human review.
+- The focused offline checks and frontend build verify the implementation changes; browser walkthrough evidence is still required for the new multi-section lesson experience.
+
+## Remaining Academy work
+
+1. Complete a browser walkthrough of multi-section lesson persistence, independent-scenario feedback, retries, and narrow-screen readability when a local server can bind.
+2. Expand the guided Lab presentation further around the existing demonstration → supported exercise → independent scenario → review sequence without changing workflow policy.
+3. Continue auditing assessment feedback as curriculum changes; the practical requirement now includes a passed independent scenario.
+4. Verify migration and persisted progress across a real application restart (offline migration coverage is present; browser/restart evidence remains).
+
+The current local MVP provides ordered Academy sections, server-checked knowledge checks, guided workflow practice, and a server-graded independent scenario for each active path. It remains an introductory learning experience, not broad competence certification; complete browser verification is still required where the environment permits.
